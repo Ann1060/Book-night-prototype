@@ -1,0 +1,29 @@
+<dialog>
+	<name>Player</name>
+	<message>Я нашел страницу.</message>
+	<dialog>
+		<name>Лена</name>
+		<message>Спасибо! Как и обещала, держи ключ.</message>
+		
+		<dialog>
+			<short_name>Я найду ему применение.</short_name>
+			<name>Player</name>
+			<message>Спасибо. Наверняка это ключ от какой-нибудь большой загадочной двери.</message>
+			<action id="1"></action>
+		</dialog>
+		<dialog>
+			<short_name>О чем книга?</short_name>
+			<name>Player</name>
+			<message>А о чем эта книга?</message>
+			<dialog>
+				<name>Лена</name>
+				<message>Это книга Криса Колфера "Страна сказок". Первая часть, "Заклинание желаний", рассказывает о том, как брат и сестра попадают в сказочный мир, который встречает их совсем недружелюбно.</message>
+				<dialog>
+					<name>Лена</name>
+					<message>Не буду всё рассказывать. Если интересно, сам прочитаешь. Удачи!</message>
+					<action id="1"></action>
+				</dialog>
+			</dialog>
+		</dialog>
+	</dialog>
+</dialog>

@@ -1,0 +1,8 @@
+<dialog>
+	<name>Лена</name>
+	<message>Ты нашёл мою страницу?</message>
+	<dialog>
+		<name>Player</name>
+		<message>Пока нет.</message>
+	</dialog>
+</dialog>

@@ -1,0 +1,17 @@
+<dialog>
+	<name>Player</name>
+	<message>Привет!</message>
+	<dialog>
+		<name>Лена</name>
+		<message>Привет! Я долго читала интересную книгу и уже была на финишной прямой, но кто-то вырвал последнюю страницу.</message>
+		<dialog>
+			<name>Лена</name>
+			<message>А еще я нашла какой-то странный ключ. Помоги мне найти страницу и я отдам его тебе.</message>
+			<dialog>
+				<name>Player</name>
+				<message>Я найду твою страницу.</message>
+				<action id="0"></action>
+			</dialog>
+		</dialog>
+	</dialog>
+</dialog>
