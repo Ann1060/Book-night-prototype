@@ -40,6 +40,7 @@ public class TextAnimator
             }
             _message.text = _currentText;
             _isAnimating = false;
+            AudioEvents.OnAudioEvent.Invoke(GameAudioEvent.TextTypingStop);
             OnAnimationFinished?.Invoke();
         }
     }
@@ -47,6 +48,7 @@ public class TextAnimator
     {
         _message.text = "";
         _isAnimating = false;
+        AudioEvents.OnAudioEvent.Invoke(GameAudioEvent.TextTypingStop);
     }
 
     private IEnumerator TypeText(string fullText)
@@ -58,10 +60,12 @@ public class TextAnimator
         {
             _message.text += c;
             yield return new WaitForSeconds(_typingSpeed);
+            AudioEvents.OnAudioEvent.Invoke(GameAudioEvent.TextTypingStart);
         }
 
         _isAnimating = false;
         _typingCoroutine = null;
+        AudioEvents.OnAudioEvent.Invoke(GameAudioEvent.TextTypingStop);
         OnAnimationFinished?.Invoke();
     }
 }

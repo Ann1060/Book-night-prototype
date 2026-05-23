@@ -14,6 +14,7 @@ public class PickupItem : MonoBehaviour, IInteractable
             {
                 if (inventory.AddItem(itemData))
                 {
+                    AudioEvents.OnAudioEvent?.Invoke(GameAudioEvent.ItemPickup);
                     if (destroyOnPickup)
                     {
                         Destroy(gameObject);

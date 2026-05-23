@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
@@ -32,20 +34,22 @@ public class UIManager : MonoBehaviour
     {
         if (inventoryPanel != null)
             inventoryPanel.SetActive(true);
+        AudioEvents.OnAudioEvent?.Invoke(GameAudioEvent.InventoryOpen);
         PlayerInteraction.isInventoryOpen = UIManager.Instance.IsInventoryOpen();
     }
     public void HideInventory()
     {
         if (inventoryPanel != null)
             inventoryPanel.SetActive(false);
+        AudioEvents.OnAudioEvent?.Invoke(GameAudioEvent.InventoryOpen);
         PlayerInteraction.isInventoryOpen = UIManager.Instance.IsInventoryOpen();
     }
-    public void ToggleInventory()
-    {
-        if (inventoryPanel != null)
-            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
-        PlayerInteraction.isInventoryOpen = UIManager.Instance.IsInventoryOpen();
-    }
+    //public void ToggleInventory()
+    //{
+    //    if (inventoryPanel != null)
+    //        inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+    //    PlayerInteraction.isInventoryOpen = UIManager.Instance.IsInventoryOpen();
+    //}
     public bool IsInventoryOpen()
     {
         return inventoryPanel != null && inventoryPanel.activeSelf;
@@ -74,7 +78,14 @@ public class UIManager : MonoBehaviour
     {
         panelEnd.SetActive(true);
         activePanelEnd = true;
+        EventSystem.current.SetSelectedGameObject(null);
         Time.timeScale = 0f;
+    }
+    public void Continue()
+    {
+        Time.timeScale = 1f;
+        panelEnd.SetActive(false);
+        activePanelEnd = false;
     }
     public void Retry()
     {
