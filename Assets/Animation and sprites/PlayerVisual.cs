@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 public class PlayerVisual : MonoBehaviour
 {
-    [SerializeField]
-    private Animator animator;
+    [SerializeField] private Animator animator;
+    [SerializeField] private PlayerInput input;
     private Vector2 lastMoveDir = Vector2.down;
     void Awake()
     {
@@ -12,9 +12,7 @@ public class PlayerVisual : MonoBehaviour
     {
         if (!UIManager.Instance.IsInventoryOpen() && !UIManager.Instance.IsDialogueOpen())
         {
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
-            Vector2 move = new Vector2(x, y);
+            Vector2 move = input.moveInput;
             bool isMoving = move != Vector2.zero;
             if (isMoving)
             {
