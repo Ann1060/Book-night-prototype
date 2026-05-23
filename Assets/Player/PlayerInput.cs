@@ -1,14 +1,12 @@
 using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
-    //public static PlayerInput Instance;
     [SerializeField] private Controller controller;
     [SerializeField] private PlayerInteraction interaction;
     [SerializeField] private DialogView dialogView;
     public Vector2 moveInput;
     private void Awake()
     {
-        //Instance = this;
         if (!UIManager.Instance.activePanelEnd)
             Cursor.visible = false;
     }
@@ -45,7 +43,8 @@ public class PlayerInput : MonoBehaviour
                     UIManager.Instance.HideInventory();
                 }
             }
-            if (!PlayerInteraction.isInventoryOpen && !PlayerInteraction.isDialogueOpen && interaction.closestF != null 
+            if (!PlayerInteraction.isInventoryOpen && !PlayerInteraction.isDialogueOpen 
+                && interaction.closestF != null 
                 && Input.GetKeyDown(KeyCode.F))
             {
                 if (interaction.closestF is NPC || interaction.closestF is InfoObject)
@@ -57,7 +56,8 @@ public class PlayerInput : MonoBehaviour
                     interaction.closestF.Interact();
                 }
             }
-            if (!PlayerInteraction.isInventoryOpen && !PlayerInteraction.isDialogueOpen && interaction.closestE != null && Input.GetKeyDown(KeyCode.E))
+            if (!PlayerInteraction.isInventoryOpen && !PlayerInteraction.isDialogueOpen 
+                && interaction.closestE != null && Input.GetKeyDown(KeyCode.E))
             {
                 interaction.closestE.Interact();
             }

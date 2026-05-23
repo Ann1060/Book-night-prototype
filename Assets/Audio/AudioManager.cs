@@ -1,9 +1,7 @@
 using UnityEngine;
-
 public class AudioManager : MonoBehaviour
 {
     public AudioSource sfxSource;
-
     public AudioClip inventoryOpen;
     public AudioClip itemPickup;
     public AudioClip typingClip;
@@ -15,12 +13,10 @@ public class AudioManager : MonoBehaviour
     {
         AudioEvents.OnAudioEvent += HandleAudioEvent;
     }
-
     void OnDisable()
     {
         AudioEvents.OnAudioEvent -= HandleAudioEvent;
     }
-
     void Update()
     {
         if (typingLoopActive && Time.time > nextTypingTime)
@@ -29,7 +25,6 @@ public class AudioManager : MonoBehaviour
             nextTypingTime = Time.time + Random.Range(0.03f, 0.12f);
         }
     }
-
     void HandleAudioEvent(GameAudioEvent audioEvent)
     {
         switch (audioEvent)
