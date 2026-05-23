@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
@@ -44,12 +43,6 @@ public class UIManager : MonoBehaviour
         AudioEvents.OnAudioEvent?.Invoke(GameAudioEvent.InventoryOpen);
         PlayerInteraction.isInventoryOpen = UIManager.Instance.IsInventoryOpen();
     }
-    //public void ToggleInventory()
-    //{
-    //    if (inventoryPanel != null)
-    //        inventoryPanel.SetActive(!inventoryPanel.activeSelf);
-    //    PlayerInteraction.isInventoryOpen = UIManager.Instance.IsInventoryOpen();
-    //}
     public bool IsInventoryOpen()
     {
         return inventoryPanel != null && inventoryPanel.activeSelf;
